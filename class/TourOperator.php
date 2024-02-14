@@ -1,7 +1,8 @@
 <?php
 
 
-class TourOperator{
+class TourOperator
+{
     private int $id;
 
     private string $name;
@@ -16,87 +17,72 @@ class TourOperator{
 
     public function __construct($data)
     {
-        $this -> id = $data['id'];
-
+        $this->id = $data['id'];
     }
 
-    /* SETTERS     */ 
+    /* SETTERS     */
 
-    public function setId($id) : void
+    public function setId($id): void
     {
         $this->id = $id;
-
     }
 
-    public function setName($name) : void
+    public function setName($name): void
     {
         $this->name = $name;
-
     }
 
-    public function setLink($link) : void
+    public function setLink($link): void
     {
         $this->link = $link;
-
     }
 
-    public function setGradeCount($gradeCount) : void
+    public function setGradeCount($gradeCount): void
     {
         $this->gradeCount = $gradeCount;
-
     }
 
-    public function setGradeTotal($gradeTotal) : void
+    public function setGradeTotal($gradeTotal): void
     {
         $this->gradeTotal = $gradeTotal;
-
     }
 
-    public function setIsPremium($isPremium) : void
+    public function setIsPremium($isPremium): void
     {
         $this->isPremium = $isPremium;
-
     }
 
-    /* GETTERS     */ 
+    /* GETTERS     */
 
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getLink() : string
+    public function getLink(): string
     {
         return $this->link;
     }
 
-    public function getGradeCount() : int
+    public function getGradeCount(): int
     {
         return $this->gradeCount;
     }
 
-    public function getGradeTotal() : int
+    public function getGradeTotal(): int
     {
         return $this->gradeTotal;
     }
 
-    public function getIsPremium()
+    public function getIsPremium(): bool
     {
         return $this->isPremium;
     }
 
-    /* METHODS     */ 
-
-
-
-
-    
+    /* METHODS     */
 }
-
-
-?>
