@@ -82,11 +82,16 @@ public function hydrateAllOperators(array $operators){
 
 }
 
-public function updateOperatorToPremium($operatorId){
-    // pdo update ispremium where id= $operatorId;
+public function updateOperatorToPremium(int $operatorId, int $premiumStatus) : void {
+    $request = $this -> bdd ->prepare ("UPDATE tour_operator SET is_premium = :is_premium WHERE id = :id");
+
+    $request -> execute ([
+        'id' => $operatorId,
+        'is_premium' => $premiumStatus
+    ]);
 }
 
-public function createTourOperator(array $data){
+public function createTourOperator(array $data) : void {
     $request = $this->bdd->prepare("INSERT INTO  tour_operator (name, link, grade_count, grade_total, is_premium) 
                                     VALUES (:name, :link, :grade_count, :grade_total, :is_premium)");
                     $request->execute([
@@ -102,9 +107,43 @@ public function createDestination(){
     //pdo create
 }
 
+public function getAllDestinationByOperator(int $operatorId) : array {
+    $request = $this -> bdd-> prepare ("SELECT * FROM `destination` WHERE tour_operator_id = :id");
 
+    $request -> execute ([
+        'id'=> $operatorId
+    ]);
 
+    $destinations = $request-> fetchAll();
+    return $destinations;
 
 }
+
+public function hydrateDestination(array $destinations) : array{
+    $alldestination =[];
+    foreach($destinations as $destination){
+
+        $data = [
+            'id'=> $destination['id'],
+            'location' => $destination['location'],
+            'price' => $destination['price'],
+            'tourOperatorId' => $destination['tour_operator_id'],
+            'bgImage' => $destination['bg_image'],
+
+        ];
+        $newDestination = new Destination($data);
+        $alldestination[] = $newDestination;
+    }
+
+
+    return $alldestination;
+
+    }
+}
+
+
+
+
+
 
 ?>
