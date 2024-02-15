@@ -8,7 +8,7 @@ class Manager{
         $this ->bdd = $db;
     }
 
-public function getAllDestination() : array {  // retourne un tableau avec nom de ville de destinatoin et bg image
+public function getAllDestination() : array {  // retourne un tableau avec nom de ville de destination et bg image
     $request = $this -> bdd -> query("SELECT DISTINCT location, bg_image FROM `destination`");
 
     $allDestinations = $request ->fetchAll();
@@ -24,6 +24,8 @@ public function getOperatorByDestination(string $destinationName){
     ])  ;
 
     $operatorByDestination = $request -> fetchAll();
+
+    return $operatorByDestination;
 }
 // tableau de sortie id location price tour_operator_id bg_image id name link grade_count grade_total is_premium
 
