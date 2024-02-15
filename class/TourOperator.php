@@ -18,6 +18,11 @@ class TourOperator
     public function __construct($data)
     {
         $this->id = $data['id'];
+        $this -> name = $data['name'];
+        $this -> link = $data['link'];
+        $this -> gradeCount = $data['gradeCount'];
+        $this -> gradeTotal = $data['gradeTotal'];
+        $this -> isPremium = $data['isPremium'];
     }
 
     /* SETTERS     */
