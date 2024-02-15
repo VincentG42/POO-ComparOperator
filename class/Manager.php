@@ -58,25 +58,27 @@ public function getAllOperator() : array {
 
     $allOperators = $request ->fetchAll();
 
-    return $$allOperators;
+    return $allOperators;
 }
 
 public function hydrateAllOperators(array $operators){
+    $allObjectsOperators =[];
     foreach ($operators as $operator ){
         $data = [
-            'id'=> $operator['name'],
-            'name' => $operator['price'],
+            'id'=> $operator['id'],
+            'name' => $operator['name'],
             'link' => $operator['link'],
             'gradeCount' => $operator['grade_count'],
             'gradeTotal' => $operator['grade_total'],
             'isPremium' => $operator['is_premium']
 
         ];
+        $newOperator = new TourOperator($data);
+        $allObjectsOperators[] = $newOperator;
     }
 
-    $newOperator = new TourOperator($data);
-    $allObjectsOperators =[];
-    $allObjectsOperators[] = $newOperator;
+
+    return $allObjectsOperators;
 
 }
 
@@ -84,13 +86,23 @@ public function updateOperatorToPremium($operatorId){
     // pdo update ispremium where id= $operatorId;
 }
 
-public function createTourOperator(){
-    //pdo create
-}
+public function createTourOperator(array $data){
+    $request = $this->bdd->prepare("INSERT INTO  tour_operator (name, link, grade_count, grade_total, is_premium) 
+                                    VALUES (:name, :link, :grade_count, :grade_total, :is_premium)");
+                    $request->execute([
+                                'name' => $data['name_TO'],
+                                'link' => $data['link'],
+                                'grade_count' => $data['grade_count'],
+                                'grade_total' => $data['grade_total'],
+                                'is_premium' => $data['is_premium']
+                            ]);
+}                 
 
 public function createDestination(){
     //pdo create
 }
+
+
 
 
 }
