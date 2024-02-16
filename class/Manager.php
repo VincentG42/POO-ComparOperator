@@ -42,8 +42,8 @@ public function checkAuthor(string $name, int $tourOperatorId){
     $testName = $request ->fetch();
 
     return $testName;
-    // pdo select where $author =$name
 }
+
 public function createReview(){
     //pdo create
 }
@@ -91,20 +91,38 @@ public function updateOperatorToPremium(int $operatorId, int $premiumStatus) : v
     ]);
 }
 
+public function updatePriceDestination(int $destinationId, int $price) : void {
+    $request = $this -> bdd ->prepare ("UPDATE destination SET price = :price WHERE id = :id");
+
+    $request -> execute ([
+        'id' => $destinationId,
+        'price' => $price
+    ]);
+}
+
 public function createTourOperator(array $data) : void {
     $request = $this->bdd->prepare("INSERT INTO  tour_operator (name, link, grade_count, grade_total, is_premium) 
                                     VALUES (:name, :link, :grade_count, :grade_total, :is_premium)");
-                    $request->execute([
-                                'name' => $data['name_TO'],
-                                'link' => $data['link'],
-                                'grade_count' => $data['grade_count'],
-                                'grade_total' => $data['grade_total'],
-                                'is_premium' => $data['is_premium']
-                            ]);
+    $request->execute([
+                'name' => $data['name_TO'],
+                'link' => $data['link'],
+                'grade_count' => $data['grade_count'],
+                'grade_total' => $data['grade_total'],
+                'is_premium' => $data['is_premium']
+            ]);
 }                 
 
-public function createDestination(){
-    //pdo create
+public function createDestination(array $data) : void{
+    $request = $this -> bdd -> prepare ("INSERT INTO destination (location, price, tour_operator_id, bg_image)
+                                            VALUES (:location, :price, :tour_operator_id, :bg_image)");
+
+    $request ->execute ([
+                        'location' => $data["location"],
+                        'price' => $data["price"], 
+                        'tour_operator_id' => $data["tour_operator_id"], 
+                        'bg_image' => $data["bg_image"]
+    ]);
+
 }
 
 public function getAllDestinationByOperator(int $operatorId) : array {
@@ -138,12 +156,31 @@ public function hydrateDestination(array $destinations) : array{
 
     return $alldestination;
 
-    }
+    
+}
+
+public function checkDestinationOperator(string $name, int $tourOperatorId){
+    $request = $this -> bdd -> prepare("SELECT * FROM destination WHERE tour_operator_id = :tour_operator_id AND location = :location ");
+
+    $request -> execute ([
+        'location' => $name,
+        'tour_operator_id' => $tourOperatorId
+    ]);
+
+    $testDestination = $request ->fetch();
+
+    return $testDestination;
+}
+
+public function deleteDestination(int $destinationId){
+    $request  =  $this ->bdd -> prepare ("DELETE FROM destination WHERE id= :id");
+            $request->execute([
+                'id' => $destinationId
+            ]);
 }
 
 
-
-
+}
 
 
 ?>
