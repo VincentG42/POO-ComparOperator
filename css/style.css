@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+header img{
+    height: 75px;
+    width: auto;
+}
+
+#hero{
+    background-image: url(../img/imgs_diverses/john-lee-oMneOBYhJxY-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

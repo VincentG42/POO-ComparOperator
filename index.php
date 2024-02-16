@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include_once ('./partials/header.php');
+require_once ('./process/index_process.php');
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/output.css">
-  <title>Document</title>
-</head>
+?>
 
-<body class="flex justify-around row">
+
+<div  id ='hero' class='h-52'>
+</div>
+
+<section id="destinations">
+
+
+</section>
 
 
 
@@ -51,7 +54,7 @@
           <div>
             <p>Nom du tour opérateur</p>
           </div>
-         
+
             <span class="flex justify-start">
 
               <svg class="h-6 w-6 text-yellow-500 fill-current mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -85,8 +88,9 @@
 
 
 
-  <script src="./js/main.js"></script>
-</body>
 
+<?php
 
-</html>
+include_once ('./partials/footer.php');
+
+?>
