@@ -3,7 +3,7 @@
 require_once './config/connect_db.php';
 require_once './config/autoload.php';
 // logique session admin (redirect si PAS admin)
-if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'admin'){
+if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
 
     session_destroy();
 
