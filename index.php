@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include_once './process/index_process.php';
+include_once './partials/header.php';
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/output.css">
-  <title>Document</title>
-</head>
+?>
+<div id="hero" class='h-72'>
 
-<body class="flex justify-around row">
+</div>
 
-
-
-
-  <section>
-    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <section class= 'p-8 flex  justify-center gap-2'>
+    <?php  foreach ($destinationList as $destination){ ?>
+    <div class="w-1/3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
-        <img class=" rounded-t-lg" src="./img/Istanbul.jpg" alt="product image" />
+        <img class=" rounded-t-lg" src="./img/<?= $destination['location'] ?>.jpg" alt="product image" />
       </a>
       <div class="px-5 pb-5">
         <a href="#">
@@ -30,9 +25,9 @@
       </div>
     </div>
     </div>
+    
+    <?php } ?>
   </section>
-
-<?php } ?>
 
 <!-- <section class=" ">
 
