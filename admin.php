@@ -13,10 +13,11 @@ if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
     $manager = new Manager($db);
     // liste des operators en bdd
     $operatorList = $manager->hydrateAllOperators($manager->getAllOperator());
-
+// var_dump($operatorList);
 
     // liste des destinations uniques 
-    $globalDestinationList = $manager->getAllDestination();
+    // $globalDestinationList = $manager->getAllDestination();
+    $globalDestinationList = ['Rome', 'Londres', 'Monaco', 'Tunis', 'Barcelone', 'Greece', 'Istanbul', 'Moscou', 'Portugal','Vienne']
 
     ?>
 
@@ -97,7 +98,7 @@ if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
                                     <select id="add_destination" name='add_destination' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full">
                                         <option></option>
                                         <?php foreach ($globalDestinationList as $destination) { ?>
-                                            <option value=<?= $destination['location'] ?>><?= $destination['location'] ?></option>
+                                            <option value=<?= $destination ?>><?= $destination?></option>
                                         <?php } ?>
 
                                     </select>

@@ -26,6 +26,6 @@ if (isset($_POST['name_TO']) && (!empty($_POST['name_TO']))
     $_POST['site'] ="";
 }
 
-header ('Location: ./admin.php');
+header ('Location: ../admin.php');
 
 ?>

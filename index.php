@@ -7,9 +7,9 @@ include_once './partials/header.php';
 
 </div>
 
-  <section class= 'p-8 flex  justify-center gap-2'>
+  <section class= 'p-8 flex  justify-center gap-2 wrap'>
     <?php  foreach ($destinationList as $destination){ ?>
-    <div class="w-1/3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="basis-1/4 w-1/4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <img class=" rounded-t-lg" src="./img/<?= $destination['location'] ?>.jpg" alt="product image" />
       </a>
