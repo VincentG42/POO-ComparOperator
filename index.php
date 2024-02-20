@@ -3,74 +3,37 @@ include_once './process/index_process.php';
 include_once './partials/header.php';
 
 ?>
-<div id="hero" class='h-72'>
 
-</div>
+<main>
+  <div id="hero" class='h-80'>
 
-  <section class= 'p-8 flex  justify-center gap-2 wrap'>
-    <?php  foreach ($destinationList as $destination){ ?>
-    <div class="basis-1/4 w-1/4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-        <img class=" rounded-t-lg" src="./img/<?= $destination['location'] ?>.jpg" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-        <a href="#">
-          <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center "><?= $destination['location'] ?></h5>
-        </a>
-        
-      </div>
-      <div class="flex items-center justify-between">
-        <!-- <span class="text-3xl font-bold dark:text-white"> A partir de $599</span> -->
-        <a href="#" class="text-white bg-teal-300 hover:bg-teal-600 font-medium  text-sm px-5 py-2.5 text-center rounded-lg  ">GO !!</a>
-      </div>
-    </div>
-    </div>
-    
-    <?php } ?>
-  </section>
-
-<!-- <section class=" ">
-
-  <div class="max-w-sm rounded-lg overflow-hidden shadow-lg border border-gray-600">
-    <div class="px-6 py-4">
-
-      <div class="font-bold text-xl mb-2">
-
-        <div>
-          <p>Nom du tour opérateur</p>
-        </div>
-
-        <span class="flex justify-start">
-
-          <svg class="h-6 w-6 text-yellow-500 fill-current mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path d="M10 1l2.5 6h6.5l-5 4.5 2 7-5-4.5-5 4.5 2-7-5-4.5h6.5l2.5-6z" />
-          </svg>
-
-          <span class="text-gray-700">4.5</span>
-
-        </span>
-
-      </div>
-
-
-
-
-      <p class="text-gray-700 text-base">Prix: <span id="price" class="font-bold"></span></p>
-      <div class="mt-4">
-        <input id="pseudo-input" class="border rounded-lg px-3 py-2 w-full" type="text" placeholder="Votre pseudo">
-        <textarea id="comment-input" class="border rounded-lg px-3 py-2 w-full mt-2" placeholder="Ajouter un commentaire..."></textarea>
-        <button onclick="addComment()" class="bg-blue-500  text-white font-bold py-2 px-4 rounded mt-2">Envoyer</button>
-      </div>
-      <div id="comments" class="border rounded-lg px-3 py-2 w-full mt-4 text-center">
-        <!-- Les commentaires seront affichés ici -->
-      <!--</div>
-    </div>
   </div>
 
-</section> -->
+  <section class='p-8 flex  justify-center gap-2 flex-wrap'>
+    <?php foreach ($destinationList as $destination) { ?>
+      <div class="flex-none w-1/4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+          <img class=" rounded-t-lg" src="./img/<?= $destination['location'] ?>.jpg" alt="product image" />
+        </a>
+        <div class="px-5 pb-5">
+          <a href="#">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center "><?= $destination['location'] ?></h5>
+          </a>
 
+        </div>
+        <div class="flex items-center justify-between">
+          <!-- <span class="text-3xl font-bold dark:text-white"> A partir de $599</span> -->
+          <!-- <a href="#" class="text-white bg-teal-300 hover:bg-teal-600 font-medium  text-sm px-5 py-2.5 text-center rounded-lg  ">GO !!</a> -->
+          <form action="./location.php" method='post'>
+            <input type="hidden" name="location" value=<?= $destination['location'] ?>>
+            <button type="submit" class="text-white bg-teal-300 hover:bg-teal-600 font-medium  text-sm px-5 py-2.5 text-center rounded-lg"> Go!</button>
+          </form>
+        </div>
+      </div>
 
-
+    <?php } ?>
+  </section>
+</main>
 
 
 

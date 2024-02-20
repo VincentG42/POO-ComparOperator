@@ -17,8 +17,10 @@ public function getAllDestination() : array {  // retourne un tableau avec nom d
 }
 
 public function getOperatorByDestination(string $destinationName){
-    $request = $this -> bdd -> prepare ("SELECT * FROM `destination` JOIN tour_operator ON destination.tour_operator_id= tour_operator.id 
-                                        WHERE destination.location = :locationName");
+    $request = $this -> bdd -> prepare ("SELECT destination.*, tour_operator.name, tour_operator.link, tour_operator.is_premium, tour_operator.grade_count, tour_operator.grade_total, tour_operator.logo
+                                            FROM `destination` 
+                                            JOIN tour_operator ON destination.tour_operator_id = tour_operator.id 
+                                            WHERE destination.location = :locationName");
     $request ->execute([    
         'locationName' => $destinationName
     ])  ;
@@ -27,7 +29,7 @@ public function getOperatorByDestination(string $destinationName){
 
     return $operatorByDestination;
 }
-// tableau de sortie id location price tour_operator_id bg_image id name link grade_count grade_total is_premium
+// tableau de sortie id |location | price | tour_operator_id | bg_image | id |name |link |grade_count | grade_total| is_premium
 
 
 
@@ -48,8 +50,38 @@ public function createReview(){
     //pdo create
 }
 
+public function hydratereviews(array $reviews) : array{
+    $allReviews =[];
+    foreach($reviews as $review){
+
+        $data = [
+            'id'=> $review['id'],
+            'message' => $review['message'],
+            'author' => $review['author'],
+            'tourOperatorId' => $review['tour_operator_id'],
+
+        ];
+        $newReview = new Review($data);
+        $allReviews[] = $newReview;
+    }
+
+
+    return $allReviews;
+
+    
+}
 public function getreviewByOperatorId (int $operatorId){
-    //pdo select review where tour_operator_id = $operatorId
+    $request = $this -> bdd -> prepare("SELECT * FROM review WHERE tour_operator_id = :tour_operator_id");
+
+    $request -> execute ([
+        'tour_operator_id' => $operatorId
+    ]);
+
+    $reviews = $request ->fetchAll();
+
+    $reviewsObject = $this -> hydratereviews($reviews);
+
+    return $reviewsObject;
 }
 
 
@@ -64,14 +96,22 @@ public function getAllOperator() : array {
 public function hydrateAllOperators(array $operators){
     $allObjectsOperators =[];
     foreach ($operators as $operator ){
-        $data = [
-            'id'=> $operator['id'],
-            'name' => $operator['name'],
-            'link' => $operator['link'],
-            'gradeCount' => $operator['grade_count'],
-            'gradeTotal' => $operator['grade_total'],
-            'isPremium' => $operator['is_premium']
 
+
+
+        if(isset($operator['tour_operator_id'])){
+            $id = $operator['tour_operator_id'];
+        }else {
+            $id =$operator['id'];
+        }
+            $data = [
+                'id' => $id,
+                'name' => $operator['name'],
+                'link' => $operator['link'],
+                'gradeCount' => $operator['grade_count'],
+                'gradeTotal' => $operator['grade_total'],
+                'isPremium' => $operator['is_premium']
+                // 'logo' => $operator['logo']
         ];
         $newOperator = new TourOperator($data);
         $allObjectsOperators[] = $newOperator;

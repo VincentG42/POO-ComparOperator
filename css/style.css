@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 
+*{
+    scrollbar-color:  rgb(51 65 85) transparent;
+    scrollbar-width: thin;
+  }
+
 
 header img{
     height: 75px;
@@ -10,8 +15,8 @@ header img{
 }
 
 #hero{
-    background-image: url(../img/imgs_diverses/john-lee-oMneOBYhJxY-unsplash.jpg);
-    background-position: center;
+    background-image: url(../img/imgs_diverses/mont-mont-blanc-couvert-neige-refletant-eau-dans-soiree-chamonix-france.jpg);
+    background-position-y: 30%;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -19,3 +24,72 @@ header img{
 footer svg{
     fill:rgb(94 234 212);
 }
+
+#barcelone{
+    background-image: url('../img/barcelona-bg0.jpg');
+    background-position:center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#greece{
+    background-image: url('../img/greece-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#istanbul{
+    background-image: url('../img/istanbul-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#londres{
+    background-image: url('../img/london-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#monaco{
+    background-image: url('../img/monaco-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#moscou{
+    background-image: url('../img/moscou-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#portugal{
+    background-image: url('../img/portugal-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#rome{
+    background-image: url('../img/roma-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#tunis{
+    background-image: url('../img/tunis-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#vienne{
+    background-image: url('../img/vienna-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+} 

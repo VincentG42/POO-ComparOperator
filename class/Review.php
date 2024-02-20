@@ -14,6 +14,9 @@ class Review
     public function __construct($data)
     {
         $this->id = $data['id'];
+        $this -> message = $data['message'];
+        $this -> author = $data['author'];
+        $this -> tourOperatorId = $data['tourOperatorId'];
     }
 
     // GETTERS /////////////////

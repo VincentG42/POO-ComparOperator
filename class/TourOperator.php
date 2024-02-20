@@ -14,15 +14,18 @@ class TourOperator
     private int $gradeTotal;
 
     private bool $isPremium;
+    
+    private string $logo;
 
     public function __construct($data)
-    {
-        $this->id = $data['id'];
+    {   
+        $this->id =$data['id']; 
         $this -> name = $data['name'];
         $this -> link = $data['link'];
         $this -> gradeCount = $data['gradeCount'];
         $this -> gradeTotal = $data['gradeTotal'];
         $this -> isPremium = $data['isPremium'];
+        // $this ->logo =$data['logo'];
     }
 
     /* SETTERS     */
@@ -57,6 +60,11 @@ class TourOperator
         $this->isPremium = $isPremium;
     }
 
+    public function setLogo($logo) : void
+    {
+        $this->logo = $logo;
+    }
+
     /* GETTERS     */
 
     public function getId(): int
@@ -88,6 +96,12 @@ class TourOperator
     {
         return $this->isPremium;
     }
+    public function getLogo() : string
+    {
+        return $this->logo;
+    }
 
     /* METHODS     */
+
+
 }
