@@ -6,12 +6,13 @@
 *{
     scrollbar-color:  rgb(51 65 85) transparent;
     scrollbar-width: thin;
-  }
+}
 
 
 header img{
-    height: 75px;
-    width: auto;
+    height: auto;
+    width: 100px;
+    rotate :-15deg;
 }
 
 #hero{

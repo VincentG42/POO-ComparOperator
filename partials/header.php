@@ -12,15 +12,15 @@ require_once './config/autoload.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour operator</title>
+    <title>Horizons Infinis</title>
     <link rel="stylesheet" href="./css/output.css">
 
 </head>
 
 <body>
     <header class="w-full bg-slate-600 flex justify-around py-5">
-        <a href="./index.php"><img src="./img/imgs_diverses/plane.png" alt="logo avion"></a>
-        <h1 class="w-max text-center text-teal-300 text-5xl font-extrabolditems-center">TOUR OPERATOR</h1>
+        <a href="./index.php"><img src="./img/imgs_diverses/logo.png" alt="logo avion"></a>
+        <h1 class="w-max text-center text-teal-300 text-5xl font-extrabolditems-center">Horizons Infinis</h1>
         <div>
             <form class="max-w-md mx-auto flex gap-2 items-center" action ="./process/connect_process.php" method="post">
                 <div class="relative z-0 w-full mb-5 group">

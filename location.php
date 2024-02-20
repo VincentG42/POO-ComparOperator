@@ -25,14 +25,14 @@ $destinations = $manager ->hydrateDestination($destinationOperatorList);
         <div class='p-12 flex gap-2 justify-center items-center'>   
         <?php for ($i=0; $i<count($operators); $i+=1){ ?>
         
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg border border-gray-600 bg-slate-800/75 size-80">
+            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg border border-gray-600 bg-slate-800/75 w-96 h-1/3">
                 <div class="px-6 py-4 flex flex-col justify-between h-full">
 
                     <div class="font-bold text-xl mb-2 text-teal-300">
                         <div class= 'flex justify-between'>
                             <p><?= $operators[$i] -> getName() ?></p>
                             <?php if ($operators[$i] ->getIsPremium() === true){?>
-                                <a href=<?= $operators[$i] ->getLink()?> class="underline text-sm font-thin"><?= $operators[$i] ->getLink()?></a>
+                                <a href=<?= $operators[$i] ->getLink()?> class="underline text-sm font-thin"><?= $operators[$i] -> getLink()?></a>
                             <?php } ?>
                         </div>
 
@@ -59,8 +59,8 @@ $destinations = $manager ->hydrateDestination($destinationOperatorList);
                     </div>
 
 
-                    <!-- <p class="text-slate-700 text-base">Prix: <span id="price" class="font-bold text-teal-300 underline underline-offset-2"> <?= $destinations[$i] ->getPrice()?>€</span></p>
-                    <div class="mt-4">
+                     <p class="text-slate-200 text-base">Prix: <span id="price" class="font-bold text-teal-300 underline underline-offset-2"> <?= $destinations[$i] ->getPrice()?>€</span></p>
+                   <!-- <div class="mt-4">
                         <input id="pseudo-input" class="border rounded-lg px-3 py-2 w-full" type="text" placeholder="Votre pseudo">
                         <textarea id="comment-input" class="border rounded-lg px-3 py-2 w-full mt-2" placeholder="Ajouter un commentaire..."></textarea>
                         <button onclick="addComment()" class="bg-teal-300  text-slate-700 font-bold py-2 px-4 rounded mt-2">Envoyer</button>
