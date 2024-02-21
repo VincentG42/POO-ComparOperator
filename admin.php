@@ -33,7 +33,7 @@ if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
     </head>
 
     <body>
-        <div class="flex justify-around p-8">
+        <div class="flex flex-col lg:flex-row justify-around p-8 gap-1">
 
         <form action="./process/connect_process.php" method='post'>
             <input type="hidden" name="get_back" value ="get_back"> 
@@ -41,7 +41,7 @@ if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
         </form>
 
         <!-- ajout tour operator -->
-            <div class="border-2 border-black flex-col p-8 mb-2">
+            <div class="border-2 border-black flex-col p-8 mb-2 h-min">
                 <h2 class="text-lg font-bold">Ajout Tour Opérateur</h2>
 
                 <form action="./process/admin_create_TO_process.php" method="post" class="max-w-sm mx-auto">
@@ -81,34 +81,32 @@ if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
                                     Premium : <?= $operator->getIsPremium() == true ?  'oui' : 'non' ?>
                                 </p>
                                 <!-- form changement de statut premium -->
-                                <form action="./process/admin_manage_TO_process.php" method="post" class='flex gap-2 w-1/2 border border-slate-200'>
-                                    <select id="change_premium" name='change_premium' class="bg-gray-50 w-1/5 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block">
+                                <form action="./process/admin_manage_TO_process.php" method="post" class='flex gap-2 w-1/2'>
+                                    <select id="change_premium" name='change_premium' class="bg-gray-200 w-1/5 text-gray-900 rounded text-sm focus:ring-blue-500 focus:border-blue-500 block">
                                         <option value=1>oui</option>
                                         <option value=0>non</option>
                                     </select>
                                     <input type="hidden" name="tour_id" value=<?= $operator->getId() ?>>
-                                    <button type="submit" class="text-white rounded bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm w-full sm:w-auto p-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">changer</button>
+                                    <button type="submit" class="text-white rounded bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm w-full sm:w-auto py-1 px-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">changer</button>
                                 </form>
                             </div>
                             <!-- form ajout/modif prix destination a un TO -->
                             <form action="./process/admin_manage_TO_process.php" method="post" class='flex w-full justify-start items-center gap-4 border border-gray-300 p-2 mb-2'>
-                                <div class='flex w-1/2'>
+                                
                                     <label for="premium" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ajout Destination :</label>
 
-                                    <select id="add_destination" name='add_destination' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3">
+                                    <select id="add_destination" name='add_destination' class="bg-gray-200 border border-gray-300  rounded text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3">
                                         <option></option>
                                         <?php foreach ($globalDestinationList as $destination) { ?>
                                             <option value=<?= $destination ?>><?= $destination?></option>
                                         <?php } ?>
-
                                     </select>
-                                </div>
-                                <div class='flex justify-sart items-center gap-4'>
+
                                     <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">prix :</label>
-                                    <input type="price" id="price" name="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                    <input type="price" id="price" name="price" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
 
                                     <input type="hidden" name="operator_id" value = <?= $operator -> getID() ?>>
-                                </div>
+                                
                                 <button type="submit" class="text-white rounded bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm w-full sm:w-auto p-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ajouter</button>
                             </form>
                             <!-- liste des destination dispo pour le TO -->
