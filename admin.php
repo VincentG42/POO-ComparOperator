@@ -70,19 +70,19 @@ if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
                 <!-- creaton 'cards' des tours opeator -->
                 <?php foreach ($operatorList as $operator) {
                     $destinationlist = $manager->hydrateDestination($manager->getAllDestinationByOperator($operator->getId())) ?>
-                    <div class="w-1/2 p-6 bg-white flex border border-gray-400 shadow">
-                        <div class="flex-col gap-2">
+                    <div class="w-full p-6 bg-white flex border border-gray-400 shadow">
+                        <div class="flex-col gap-2 w-full">
                             <h3 class="font-medium w-full text-center mb-2">
                                 <!-- recuperation du nom du TO -->
                                 <?= $operator->getName() ?>
                             </h3>
-                            <div class='flex mb-2'>
-                                <p class= 'w-1/2 font-medium'>
+                            <div class='flex flex-row mb-2 gap-2'>
+                                <p class= 'font-medium'>
                                     Premium : <?= $operator->getIsPremium() == true ?  'oui' : 'non' ?>
                                 </p>
                                 <!-- form changement de statut premium -->
-                                <form action="./process/admin_manage_TO_process.php" method="post" class='flex w-1/2 border border-slate-200'>
-                                    <select id="change_premium" name='change_premium' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full">
+                                <form action="./process/admin_manage_TO_process.php" method="post" class='flex gap-2 w-1/2 border border-slate-200'>
+                                    <select id="change_premium" name='change_premium' class="bg-gray-50 w-1/5 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block">
                                         <option value=1>oui</option>
                                         <option value=0>non</option>
                                     </select>
@@ -91,11 +91,11 @@ if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
                                 </form>
                             </div>
                             <!-- form ajout/modif prix destination a un TO -->
-                            <form action="./process/admin_manage_TO_process.php" method="post" class='flex-col'>
-                                <div class='flex-col'>
+                            <form action="./process/admin_manage_TO_process.php" method="post" class='flex w-full justify-start items-center gap-4 border border-gray-300 p-2 mb-2'>
+                                <div class='flex w-1/2'>
                                     <label for="premium" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ajout Destination :</label>
 
-                                    <select id="add_destination" name='add_destination' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full">
+                                    <select id="add_destination" name='add_destination' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3">
                                         <option></option>
                                         <?php foreach ($globalDestinationList as $destination) { ?>
                                             <option value=<?= $destination ?>><?= $destination?></option>
@@ -103,9 +103,9 @@ if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
 
                                     </select>
                                 </div>
-                                <div class='flex-col mb-2'>
+                                <div class='flex justify-sart items-center gap-4'>
                                     <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">prix :</label>
-                                    <input type="price" id="price" name="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                    <input type="price" id="price" name="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
 
                                     <input type="hidden" name="operator_id" value = <?= $operator -> getID() ?>>
                                 </div>
@@ -113,6 +113,7 @@ if($_SESSION['pseudo'] != 'admin'  && $_SESSION['password'] != 'presqueadmin'){
                             </form>
                             <!-- liste des destination dispo pour le TO -->
                             <div>
+                                <p>Propose déjà :</p>
                                 <ul class="flex gap-2 mt-1">
                                     <?php foreach ($destinationlist as $destination) { ?>
                                         <li class="flex gap-1"><?= $destination->getLocation() ?> <span>

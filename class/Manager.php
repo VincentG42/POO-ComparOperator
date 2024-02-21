@@ -46,8 +46,18 @@ public function checkAuthor(string $name, int $tourOperatorId){
     return $testName;
 }
 
-public function createReview(){
-    //pdo create
+public function createReview(array $data) : void {
+    if(!$this -> checkAuthor($data['author'], $data['tour_operator_id'])){
+
+        $request = $this->bdd->prepare("INSERT INTO  review (message, author, tour_operator_id) 
+                                        VALUES (:message, :author, :tour_operator_id)");
+        $request->execute([
+                    'message' => $data['message'],
+                    'author' => $data['author'],
+                    'tour_operator_id' => $data['tour_operator_id'],
+                    
+                ]);
+    }
 }
 
 public function hydratereviews(array $reviews) : array{
@@ -70,7 +80,7 @@ public function hydratereviews(array $reviews) : array{
 
     
 }
-public function getreviewByOperatorId (int $operatorId){
+public function getreviewByOperatorId (int $operatorId) : array{
     $request = $this -> bdd -> prepare("SELECT * FROM review WHERE tour_operator_id = :tour_operator_id");
 
     $request -> execute ([

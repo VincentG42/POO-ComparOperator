@@ -2,49 +2,55 @@
     <div class="mx-auto w-full max-w-screen-xl">
         <div class=" flex justify-around px-4 py-6 lg:py-8 md:grid-cols-4">
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-teal-300 uppercase dark:text-white">Company</h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="mb-4">
-                        <a href="#" class=" hover:underline">About</a>
+                <h2 class="mb-4 text-sm font-semibold text-teal-300 uppercase dark:text-white">A propos</h2>
+                <ul class="text-slate-400 dark:text-gray-400 font-small">
+                    <li class="text-small">
+                        <a href="#" class=" hover:underline">Qui sommes-nous ?</a>
                     </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Careers</a>
+                    <li class="text-small">
+                        <a href="#" class="hover:underline">Nous contacter</a>
                     </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Brand Center</a>
+                    <li class="text-small">
+                        <a href="#" class="hover:underline">FAQ</a>
                     </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Blog</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h2 class="mb-6 text-sm font-semibold text-teal-300 uppercase dark:text-white">Help center</h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Discord Server</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Twitter</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Facebook</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Contact Us</a>
+                    <li class="text-small">
+                        <a href="#" class="hover:underline">Médiateur du tourisme</a>
                     </li>
                 </ul>
             </div>
             <div>
+                <h2 class="mb-4 text-sm font-semibold text-teal-300 uppercase dark:text-white">Informations Pratiques</h2>
+                <ul class="text-slate-400 dark:text-gray-400 font-small">
+                    <li class="text-small text-slate-400">
+                        <a href="#" class="hover:underline">CGV</a>
+                    </li>
+                    <li class="text-small">
+                        <a href="#" class="hover:underline">Mentions Légales</a>
+                    </li>
+                    <li class="text-small">
+                        <a href="#" class="hover:underline">Assurances</a>
+                    </li>
+                    <li class="text-small">
+                        <a href="#" class="hover:underline">Politique de confidentialité</a>
+                    </li>
+                    <li class="text-small">
+                        <a href="#" class="hover:underline">Cookies</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div>
                 <h2 class="mb-6 text-sm font-semibold text-teal-300 uppercase dark:text-white">Legal</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="mb-4">
+                    <li class="mb-2">
                         <a href="#" class="hover:underline">Privacy Policy</a>
                     </li>
-                    <li class="mb-4">
+                    <li class="mb-2">
                         <a href="#" class="hover:underline">Licensing</a>
                     </li>
-                    <li class="mb-4">
+                    <li class="mb-2">
+                        <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                    </li>
+                    <li class="mb-2">
                         <a href="#" class="hover:underline">Terms &amp; Conditions</a>
                     </li>
                 </ul>
@@ -52,23 +58,23 @@
             <div>
                 <h2 class="mb-6 text-sm font-semibold text-teal-300 uppercase dark:text-white">Download</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="mb-4">
+                    <li class="mb-1">
                         <a href="#" class="hover:underline">iOS</a>
                     </li>
-                    <li class="mb-4">
+                    <li class="mb-1">
                         <a href="#" class="hover:underline">Android</a>
                     </li>
-                    <li class="mb-4">
+                    <li class="mb-1">
                         <a href="#" class="hover:underline">Windows</a>
                     </li>
-                    <li class="mb-4">
+                    <li class="mb-1">
                         <a href="#" class="hover:underline">MacOS</a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
         <div class="px-4 py-6 bg-slate-600 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 Turan/Vincent. All Rights Reserved.
+            <span class="text-sm text-slate-400 dark:text-gray-300 sm:text-center"><span class="text-teal-200">©</span> 2024 Turan/Vincent. All Rights Reserved.
             </span>
             <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
                 <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
