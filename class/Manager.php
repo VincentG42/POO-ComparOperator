@@ -29,15 +29,15 @@ public function getOperatorByDestination(string $destinationName){
 
     return $operatorByDestination;
 }
-// tableau de sortie id |location | price | tour_operator_id | bg_image | id |name |link |grade_count | grade_total| is_premium
+// tableau de sortie id |location | price | tour_operator_id | bg_image |name |link |grade_count | grade_total| is_premium
 
 
 
 public function checkAuthor(string $name, int $tourOperatorId){
-    $request = $this -> bdd -> prepare("SELECT :name FROM review WHERE tour_operator_id = :tour_operator_id");
+    $request = $this -> bdd -> prepare("SELECT author FROM review WHERE tour_operator_id = :tour_operator_id AND author = :author");
 
     $request -> execute ([
-        'name' => $name,
+        'author' => $name,
         'tour_operator_id' => $tourOperatorId
     ]);
 
@@ -47,14 +47,14 @@ public function checkAuthor(string $name, int $tourOperatorId){
 }
 
 public function createReview(array $data) : void {
-    if(!$this -> checkAuthor($data['author'], $data['tour_operator_id'])){
+    if(!($this -> checkAuthor($data['author'], $data['tour_operator_id']))){
 
         $request = $this->bdd->prepare("INSERT INTO  review (message, author, tour_operator_id) 
                                         VALUES (:message, :author, :tour_operator_id)");
         $request->execute([
                     'message' => $data['message'],
                     'author' => $data['author'],
-                    'tour_operator_id' => $data['tour_operator_id'],
+                    'tour_operator_id' => $data['tour_operator_id']
                     
                 ]);
     }
