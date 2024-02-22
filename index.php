@@ -9,14 +9,14 @@ include_once './partials/header.php';
 
   </div>
 
-  <section class='p-8 flex justify-center items-center gap-2 flex-wrap'>
+  <section class='p-2 lg:p-8 flex justify-center items-center gap-2 flex-wrap'>
     <?php foreach ($destinationList as $destination) { ?>
       <div class="flex-none md:w-1/4 w-1/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <img class=" rounded-t-lg" src="./img/<?= $destination['location'] ?>.jpg" alt="product image" />
         
           
-          <div class="flex items-center justify-between">
-            <div class="px-5 p-5">   
+          <div class="flex flex-col md:flex-row items-center justify-center md:justify-between w-100 p-3">
+            <div class="">   
               <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center "><?= $destination['location'] ?></h5>
             </div>
             <!-- <span class="text-3xl font-bold dark:text-white"> A partir de $599</span> -->

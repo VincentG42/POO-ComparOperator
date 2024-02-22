@@ -14,11 +14,11 @@ h1{
     font-style: italic;
 }
 
-header img{
-    height: auto;
-    width: 100px;
-    rotate :-15deg;
+header a{
+    font-family: "Playfair Display", serif;
+    font-style: italic;
 }
+
 
 #hero{
     background-image: url(../img/imgs_diverses/mont-mont-blanc-couvert-neige-refletant-eau-dans-soiree-chamonix-france.jpg);
@@ -30,6 +30,7 @@ header img{
 footer svg{
     fill:rgb(94 234 212);
 }
+
 
 #barcelone{
     background-image: url('../img/barcelona-bg0.jpg');

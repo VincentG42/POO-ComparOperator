@@ -16,10 +16,10 @@ $destinations = $manager ->hydrateDestination($destinationOperatorList);
 <main>
 
     <section id="<?= strtolower($destinations[0] ->getLocation() )?>" class="h-screen">
-        <div class='p-12 flex flex-col md:flex-row gap-2 justify-center items-center'>   
+        <div class='p-12 flex flex-col md:flex-row gap-2 justify-center items-center flex-wrap'>   
         <?php for ($i=0; $i<count($operators); $i+=1){ ?>
         
-            <div class="md:w-1/3 lg:w-1/4 w-full rounded-lg shadow-lg border border-gray-600 bg-slate-800/75 h-1/3">
+            <div class="w-100 md:w-1/2 rounded-lg shadow-lg border border-slate-800 bg-slate-800/75 h-1/3">
                 <div class="px-6 py-4 flex flex-col justify-between h-full">
 
                     <div class="font-bold text-xl mb-2 text-teal-300">

@@ -1,4 +1,4 @@
-<footer class="bg-slate-600 dark:bg-gray-900 flex">
+<footer class="bg-slate-800 dark:bg-gray-900 flex">
     <div class="mx-auto w-full max-w-screen-xl">
         <div class=" flex justify-around px-4 py-6 lg:py-8 md:grid-cols-4">
             <div>

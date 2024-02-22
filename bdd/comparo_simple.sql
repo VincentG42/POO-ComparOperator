@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 15, 2024 at 12:14 PM
+-- Generation Time: Feb 22, 2024 at 07:56 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -32,7 +32,7 @@ CREATE TABLE `destination` (
   `location` varchar(255) NOT NULL,
   `price` int NOT NULL,
   `tour_operator_id` int NOT NULL,
-  `bg_image` varchar(255) NOT NULL
+  `bg_image` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
@@ -43,7 +43,13 @@ INSERT INTO `destination` (`id`, `location`, `price`, `tour_operator_id`, `bg_im
 (1, 'Rome', 1650, 2, ''),
 (2, 'Londres', 1100, 2, ''),
 (3, 'Monaco', 1390, 1, ''),
-(4, 'Tunis', 2390, 3, '');
+(4, 'Tunis', 2390, 3, ''),
+(7, 'Barcelone', 599, 9, ''),
+(8, 'Portugal', 799, 1, ''),
+(9, 'Portugal', 749, 9, ''),
+(10, 'Greece', 799, 3, ''),
+(11, 'Rome', 399, 9, ''),
+(12, 'Vienne', 899, 1, '');
 
 -- --------------------------------------------------------
 
@@ -80,17 +86,19 @@ CREATE TABLE `tour_operator` (
   `link` varchar(255) NOT NULL,
   `grade_count` int NOT NULL DEFAULT '0',
   `grade_total` int NOT NULL DEFAULT '0',
-  `is_premium` tinyint(1) NOT NULL DEFAULT '0'
+  `is_premium` tinyint(1) NOT NULL DEFAULT '0',
+  `logo` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `tour_operator`
 --
 
-INSERT INTO `tour_operator` (`id`, `name`, `link`, `grade_count`, `grade_total`, `is_premium`) VALUES
-(1, 'Salaun Holidays', 'https://www.salaun-holidays.com/', 0, 0, 0),
-(2, 'Fram', 'https://www.fram.fr/', 2, 6, 1),
-(3, 'Heliades', 'https://www.heliades.fr/', 1, 4, 0);
+INSERT INTO `tour_operator` (`id`, `name`, `link`, `grade_count`, `grade_total`, `is_premium`, `logo`) VALUES
+(1, 'Salaun Holidays', 'https://www.salaun-holidays.com/', 0, 0, 1, NULL),
+(2, 'Fram', 'https://www.fram.fr/', 2, 6, 0, NULL),
+(3, 'Heliades', 'https://www.heliades.fr/', 1, 4, 0, NULL),
+(9, 'TUI', 'https://www.tui.fr/', 0, 0, 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -124,19 +132,19 @@ ALTER TABLE `tour_operator`
 -- AUTO_INCREMENT for table `destination`
 --
 ALTER TABLE `destination`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tour_operator`
 --
 ALTER TABLE `tour_operator`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
