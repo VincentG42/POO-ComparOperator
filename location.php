@@ -15,7 +15,7 @@ $destinations = $manager ->hydrateDestination($destinationOperatorList);
 ?>
 <main>
 
-    <section id="<?= strtolower($destinations[0] ->getLocation() )?>" class="h-screen">
+    <section id="<?= strtolower($destinations[0] ->getLocation() )?>" class="h-fit">
         <div class='p-12 flex flex-col md:flex-row gap-2 justify-center items-center flex-wrap'>   
         <?php for ($i=0; $i<count($operators); $i+=1){ ?>
         
