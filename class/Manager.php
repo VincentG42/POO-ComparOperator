@@ -51,12 +51,11 @@ public function createReview(array $data) : void {
 
         $request = $this->bdd->prepare("INSERT INTO  review (message, author, tour_operator_id) 
                                         VALUES (:message, :author, :tour_operator_id)");
-        $request->execute([
-                    'message' => $data['message'],
-                    'author' => $data['author'],
-                    'tour_operator_id' => $data['tour_operator_id']
-                    
-                ]);
+
+        $request -> execute('message', $data['message']);
+        $request -> execute('author',$data['author']);
+        $request -> execute('tour_operator_id', $data['tour_operator_id']);
+        $request->execute();
     }
 }
 
